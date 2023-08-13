@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Map with Auto-Hiding Popup</title>
+    <style>
+        /* Styles for the popup */
+        .popup {
+            border: 1px solid #fff;
+            border-radius: 5px;
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <h1>Interactive Image Map with Auto-Hiding Popup</h1>
+    <img class="dora" src="dora.jpg" alt="Clickable Image Map" usemap="#imagemap">
+
+    <map name="imagemap">
+        <!-- Define the clickable areas -->
+        <area shape="rect" coords="241,42,528,287" onclick="showPopup('popup1')"> 
+        <area shape="rect" coords="695,254,894,396" onclick="showPopup('popup2')"> 
+        <area shape="rect" coords="711,526,886,613" onclick="showPopup('popup3')"> 
+    </map>
+
+    <!-- Popup div for displaying content -->
+    <div id="popup1" class="popup">
+        <h2>Dora:</h2>
+        <p>To: buji <br>
+        Msg: Hi have send a link to you click and login to instagram amd follow my new account...</p>
+    </div>
+
+    <div id="popup2" class="popup">
+        <h2>From: Buji </h2>
+        <h2>To: Dora </h2>
+        <p>
+            Msg: Apidiya Dora Wait let me check it by login in that link Athuvum ippove...
+        </p>
+    </div>
+    <div id="popup3" class="popup">
+        <h2>From: Boots </h2>
+        <h2>To: Dora </h2>
+        <p>
+            Msg: Dora akka Buji is too bad akka not even washing it's socks...Smell thanga mudila akka...
+        </p>
+    </div>
+
+    <script>
+        // Function to show the popup
+        function showPopup(popupId) {
+            var popup = document.getElementById(popupId);
+            popup.style.display = "block";
+
+            // Automatically hide the popup after 5 seconds
+            setTimeout(function() {
+                hidePopup(popupId);
+            }, 5000);
+        }
+
+        // Function to hide the popup
+        function hidePopup(popupId) {
+            var popup = document.getElementById(popupId);
+            popup.style.display = "none";
+        }
+    </script>
+</body>
+</html>
